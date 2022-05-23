@@ -12,14 +12,14 @@ import main.java.models.Player;
 import main.java.models.Food;
 import main.java.models.Frame;
 import main.java.models.GameOverPanel;
-import main.java.models.MyPanel;
+import main.java.models.MainGamePanel;
 
 public class PlayerStatisicsService {
 
 	public boolean enemyCollison = false;
 	static final Logger logger = Logger.getLogger(PlayerStatisicsService.class);
 
-	public int handleHealth(Player player, Enemy enemy, MyPanel panel, GameOverPanel gameOver) {
+	public int handleHealth(Player player, Enemy enemy, MainGamePanel panel, GameOverPanel gameOver) {
 		int totalHealth = player.getHealth();
 		int EHealth = enemy.getEnemyHealth();
 		

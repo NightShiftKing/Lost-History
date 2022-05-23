@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import main.java.models.ITEM_Stick;
 import main.java.models.Items;
 import main.java.models.Player;
-import main.java.models.main;
+import main.java.models.LostHistoryGameApp;
 
 public class InventoryService implements MouseListener {
 	static final Logger logger = Logger.getLogger(InventoryService.class);
