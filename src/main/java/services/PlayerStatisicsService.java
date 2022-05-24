@@ -1,6 +1,7 @@
 package main.java.services;
 
 import java.awt.Rectangle;
+import java.security.PublicKey;
 
 import javax.swing.JFrame;
 
@@ -22,20 +23,19 @@ public class PlayerStatisicsService {
 	public int handleHealth(Player player, Enemy enemy, MainGamePanel panel, GameOverPanel gameOver) {
 		int totalHealth = player.getHealth();
 		int EHealth = enemy.getEnemyHealth();
-		
 
-		if (totalHealth <= 0) {
-			totalHealth = 0;
+		if (totalHealth == 0) {
 
-			player.setPlayerDeath(true);
+	
+			MainGamePanel.playerDeath = true;
 		}
-		while (totalHealth != -1) {
-			if (player.getBounds().intersects(enemy.getBounds())) {
-				totalHealth = totalHealth--;
-				player.setHealth(totalHealth);
 
-			}
+		if (player.getBounds().intersects(enemy.getBounds())) {
+			totalHealth = totalHealth - 1;
+			player.setHealth(totalHealth);
+
 		}
+
 //		if (player.getFoods() != null) {
 //			while ((player.getHealth() < 100) && (player.getFoods().size() != 0)) {
 //				totalHealth = totalHealth + (player.getFoods().size() / 5);
@@ -50,9 +50,9 @@ public class PlayerStatisicsService {
 			return enemy.getEnemyHealth();
 		}
 
-		if (EHealth <= 0) {
+		if (EHealth == 0) {
 
-			enemy.x = 10000;
+			enemy.x = 1000;
 
 		}
 		// player.setHealth(totalHealth);

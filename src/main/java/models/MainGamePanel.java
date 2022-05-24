@@ -33,9 +33,13 @@ public class MainGamePanel extends JPanel implements ActionListener, MouseListen
 
 	public Enemy enemy;
 
-	Plants plant; s
+	Player player;
 
-	InventoryService Inv;
+	ITEM_Stick stick;
+
+	Animals animal;
+
+	Plants plant;
 
 	public Timer gamelooptimer;
 
@@ -57,17 +61,21 @@ public class MainGamePanel extends JPanel implements ActionListener, MouseListen
 		ArrayList<Food> starterFoods = new ArrayList<>();
 		Food food = new Food("Rations");
 		starterFoods.add(food);
-		p = new Player(300, 300, starterFoods);
-		if (p.isPlayerDeath()) {
+		player = new Player(300, 300, starterFoods);
+		logger.info("The player is dead?" + String.valueOf(MainGamePanel.playerDeath));
+
+		if (player.isPlayerDeath()) {
+			logger.info("The player is dead?" + String.valueOf(MainGamePanel.playerDeath));
+
 			playerDeath = true;
 		}
 		enemy = new Enemy(100, 100);
-		a = new Animals(150, 250);
-		plant;s = new Plants(250, 300);
-		IStick = new ITEM_Stick(300, 300);
+		animal = new Animals(150, 250);
+		plant = new Plants(250, 300);
+		stick = new ITEM_Stick(300, 300);
 
-		addKeyListener(new KeyInput(p));
-		addMouseListener(new MouseInput(p));
+		addKeyListener(new KeyInput(player));
+		addMouseListener(new MouseInput(player));
 		setFocusable(true);
 		setVisible(visable);
 
@@ -76,121 +84,17 @@ public class MainGamePanel extends JPanel implements ActionListener, MouseListen
 
 	}
 
-	public boolean isVisable() {
-		return visable;
-	}
-
-	public void setVisable(boolean visable) {
-		this.visable = visable;
-	}
-
-	public InventoryService getInventoryService() {
-		return inventoryService;
-	}
-
-	public void setInventoryService(InventoryService inventoryService) {
-		this.inventoryService = inventoryService;
-	}
-
-	public EnemyService getEnemyService() {
-		return enemyService;
-	}
-
-	public void setEnemyService(EnemyService enemyService) {
-		this.enemyService = enemyService;
-	}
-
-	public GameOverPanel getGameOver() {
-		return gameOver;
-	}
-
-	public void setGameOver(GameOverPanel gameOver) {
-		this.gameOver = gameOver;
-	}
-
-	public Player getP() {
-		return p;
-	}
-
-	public void setP(Player p) {
-		this.p = p;
-	}
-
-	public Enemy getEn() {
-		return enemy;
-	}
-
-	public void setEn(Enemy en) {
-		enemy = en;
-	}
-
-	public Animals getA() {
-		return a;
-	}
-
-	public void setA(Animals a) {
-		this.a = a;
-	}
-
-	public Plants getPl() {
-		return plant;s;
-	}
-
-	public void setPl(Plants pl) {
-		plant;s = pl;
-	}
-
-	public ITEM_Stick getIStick() {
-		return IStick;
-	}
-
-	public void setIStick(ITEM_Stick iStick) {
-		IStick = iStick;
-	}
-
-	public InventoryService getInv() {
-		return Inv;
-	}
-
-	public void setInv(InventoryService inv) {
-		Inv = inv;
-	}
-
-	public Timer getGamelooptimer() {
-		return gamelooptimer;
-	}
-
-	public void setGamelooptimer(Timer gamelooptimer) {
-		this.gamelooptimer = gamelooptimer;
-	}
-
-	public PlayerStatisicsService getPlayerService() {
-		return playerService;
-	}
-
-	public void setPlayerService(PlayerStatisicsService playerService) {
-		this.playerService = playerService;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public static Logger getLogger() {
-		return logger;
-	}
-
 	public void paint(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
 		g2D.drawImage(getBackgroundImage(), 0, 0, null);
 
-		p.draw(g2D);
+		player.draw(g2D);
 		enemy.draw(g2D);
 
 		// logger.info("PlayerHealth = " + String.valueOf(p.getHealth()));
-		a.draw(g2D);
-		plant;s.draw(g2D);
-		IStick.draw(g2D);
+		animal.draw(g2D);
+		plant.draw(g2D);
+		stick.draw(g2D);
 
 		if (playerDeath == true) {
 			logger.info("trying to put the death screen here " + String.valueOf(MainGamePanel.playerDeath));
@@ -210,17 +114,74 @@ public class MainGamePanel extends JPanel implements ActionListener, MouseListen
 
 		repaint();
 		enemy.update();
-		p.update();
-		a.update();
-		plant;s.update();
+		player.update();
+		animal.update();
+		plant.update();
 
-		playerService.handleHealth(p, enemy, this, gameOver);
+		playerService.handleHealth(player, enemy, this, gameOver);
 		/*
 		 * if(p.getHealth() == 0) { MyPanel.playerDeath = true; }
 		 */
-		inventoryService.addToInventory(IStick, p, IStick);
-		enemyService.Pathfinding(p, enemy);
+		inventoryService.addToInventory(stick, player, stick);
+		enemyService.Pathfinding(player, enemy);
 	}
+
+	public Enemy getEnemy() {
+		return enemy;
+	}
+
+	public void setEnemy(Enemy enemy) {
+		this.enemy = enemy;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
+	public ITEM_Stick getStick() {
+		return stick;
+	}
+
+	public void setStick(ITEM_Stick stick) {
+		this.stick = stick;
+	}
+
+	public Animals getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animals animal) {
+		this.animal = animal;
+	}
+
+	public Plants getPlant() {
+		return plant;
+	}
+
+	public void setPlant(Plants plant) {
+		this.plant = plant;
+	}
+
+	public static boolean isPlayerDeath() {
+		return playerDeath;
+	}
+
+	public static void setPlayerDeath(boolean playerDeath) {
+		MainGamePanel.playerDeath = playerDeath;
+	}
+
+	public boolean isVisable() {
+		return visable;
+	}
+
+	public void setVisable(boolean visable) {
+		this.visable = visable;
+	}
+
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

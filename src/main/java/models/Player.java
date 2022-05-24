@@ -29,7 +29,7 @@ public class Player extends GameObjects {
 
 	private boolean loot = false;
 
-	private boolean PlayerDeath = false;
+	private boolean playerDeath = false;
 
 	private static final String PLAYER_IMAGE = "/main/java/images/steve.png";
 	private static final String HEALTH_BAR = "/main/java/images/health.png";
@@ -294,11 +294,11 @@ public class Player extends GameObjects {
 	}
 
 	public boolean isPlayerDeath() {
-		return PlayerDeath;
+		return playerDeath;
 	}
 
 	public void setPlayerDeath(boolean playerDeath) {
-		PlayerDeath = playerDeath;
+		this.playerDeath = playerDeath;
 	}
 
 }
