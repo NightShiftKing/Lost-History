@@ -1,11 +1,5 @@
 package main.java.models;
 
-import java.awt.Rectangle;
-
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-
 public class GameObjects   {
 
 	/**

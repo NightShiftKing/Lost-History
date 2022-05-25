@@ -1,17 +1,8 @@
 package main.java.services;
 
-import java.awt.Rectangle;
-import java.security.PublicKey;
-
-import javax.swing.JFrame;
-
 import org.apache.log4j.Logger;
-import org.apache.log4j.jmx.LoggerDynamicMBean;
-
 import main.java.models.Enemy;
 import main.java.models.Player;
-import main.java.models.Food;
-import main.java.models.Frame;
 import main.java.models.GameOverPanel;
 import main.java.models.MainGamePanel;
 
@@ -59,7 +50,7 @@ public class PlayerStatisicsService {
 
 		
 		// player.setHealth(totalHealth);
-	//	logger.info("my total health is " + String.valueOf(player.getHealth()));
+	//	logger.info("https://github.com/NightShiftKing/lost-history.gitmy total health is " + String.valueOf(player.getHealth()));
 		return player.getHealth();
 
 	}

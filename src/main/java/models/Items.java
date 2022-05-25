@@ -31,4 +31,8 @@ public class Items extends GameObjects {
 		super.setX(1000);
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }

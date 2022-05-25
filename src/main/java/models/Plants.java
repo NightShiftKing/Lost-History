@@ -5,10 +5,6 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-
 public class Plants extends GameObjects {
 	private static final  String TREE_IMAGE  = "/main/java/images/appletree.png";
 

@@ -1,16 +1,9 @@
 package main.java.models;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.geom.Rectangle2D;
-
 import javax.swing.ImageIcon;
-
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 public class Enemy extends GameObjects {
 	private static final String ENEMY_IMAGE = "/main/java/images/Enemy.png";
