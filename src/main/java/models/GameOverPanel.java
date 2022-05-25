@@ -43,7 +43,7 @@ public class GameOverPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Button pressed");
+		//System.out.println("Button pressed");
 	}
 
 	public static String getDeathImage() {

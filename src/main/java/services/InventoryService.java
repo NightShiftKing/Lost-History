@@ -19,14 +19,16 @@ public class InventoryService implements MouseListener {
 
 	public void addToInventory(Items item, Player player, ITEM_Stick stick) {
 		if (null != item) {
-		
+
 			if (stick.getBounds().intersects(player.getBounds()) && (player.isLoot() == true)
 					&& (stick.isAllowpickup() == true)) {
-		
+
 				if (player.getBagItems() != null) {
 					player.getBagItems().add(item);
 					stick.setX(10000);
-					player.getBagItems().stream().forEach((i) ->{ logger.info("My inventory " + i.getName() );});
+					player.getBagItems().stream().forEach((i) -> {
+					//	logger.info("My inventory " + i.getName());
+					});
 				}
 			}
 		}

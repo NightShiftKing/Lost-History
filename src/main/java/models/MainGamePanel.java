@@ -62,10 +62,10 @@ public class MainGamePanel extends JPanel implements ActionListener, MouseListen
 		Food food = new Food("Rations");
 		starterFoods.add(food);
 		player = new Player(300, 300, starterFoods);
-		logger.info("The player is dead?" + String.valueOf(MainGamePanel.playerDeath));
+		//logger.info("The player is dead?" + String.valueOf(MainGamePanel.playerDeath));
 
 		if (player.isPlayerDeath()) {
-			logger.info("The player is dead?" + String.valueOf(MainGamePanel.playerDeath));
+			//logger.info("The player is dead?" + String.valueOf(MainGamePanel.playerDeath));
 
 			playerDeath = true;
 		}
@@ -97,7 +97,7 @@ public class MainGamePanel extends JPanel implements ActionListener, MouseListen
 		stick.draw(g2D);
 
 		if (playerDeath == true) {
-			logger.info("trying to put the death screen here " + String.valueOf(MainGamePanel.playerDeath));
+			//logger.info("trying to put the death screen here " + String.valueOf(MainGamePanel.playerDeath));
 			g2D.drawImage(gameOver.getDeathScreenImage(), 0, 0, null);
 
 		}

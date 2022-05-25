@@ -24,11 +24,11 @@ public class Frame extends JFrame {
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		logger.info("The player is dead? " + String.valueOf(MainGamePanel.playerDeath));
+	//	logger.info("The player is dead? " + String.valueOf(MainGamePanel.playerDeath));
 
 		// if player dies GameOverPanel comes on
 		if (MainGamePanel.playerDeath == true) {
-			logger.info("The player is dead? " + String.valueOf(MainGamePanel.playerDeath));
+			//logger.info("The player is dead? " + String.valueOf(MainGamePanel.playerDeath));
 			frame.getContentPane().removeAll();
 			frame.getContentPane().add(gameOverPanel);
 			

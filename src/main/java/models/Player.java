@@ -229,6 +229,10 @@ public class Player extends GameObjects {
 		} else if (key == KeyEvent.VK_S) {
 			vely = 4;
 		}
+		
+		else if(key == KeyEvent.VK_E) {
+		health += 1;
+		}
 
 	}
 
@@ -247,13 +251,13 @@ public class Player extends GameObjects {
 	}
 
 	public void mouseClicked(MouseEvent e) {
+		
 
 	}
 
 	public void mousePressed(MouseEvent e) {
 		loot = true;
 		attack = true;
-
 	}
 
 	public void mouseReleased(MouseEvent e) {

@@ -10,7 +10,7 @@ public class LostHistoryGameApp {
 	public static void main(String[] args) {
 		BasicConfigurator.configure();
 
-		logger.info("initalizing game...");
+		//logger.info("initalizing game...");
 
 		new Frame();
 

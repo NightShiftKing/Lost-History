@@ -24,14 +24,20 @@ public class PlayerStatisicsService {
 		int totalHealth = player.getHealth();
 		int EHealth = enemy.getEnemyHealth();
 
-		if (totalHealth == 0) {
+		if (totalHealth <= 0) {
 
 	
 			MainGamePanel.playerDeath = true;
 		}
+		
+		if(totalHealth >= 100) {
+			player.setHealth(100); 
+		}
+			
+		
 
 		if (player.getBounds().intersects(enemy.getBounds())) {
-			totalHealth = totalHealth - 1;
+			totalHealth = totalHealth - 5;
 			player.setHealth(totalHealth);
 
 		}
@@ -44,19 +50,16 @@ public class PlayerStatisicsService {
 //		}
 
 		if (player.getBounds().intersects(enemy.getBounds()) && (player.isAttack() == true)) {
-			EHealth = EHealth - 5;
-
+			EHealth = EHealth - 10;
+			//logger.info("this is enemy health" + String.valueOf(enemy.getEnemyHealth()));
+			//logger.info("attemting to kill");
 			enemy.setEnemyHealth(EHealth);
 			return enemy.getEnemyHealth();
 		}
 
-		if (EHealth == 0) {
-
-			enemy.x = 1000;
-
-		}
+		
 		// player.setHealth(totalHealth);
-		logger.info("my total health is " + String.valueOf(player.getHealth()));
+	//	logger.info("my total health is " + String.valueOf(player.getHealth()));
 		return player.getHealth();
 
 	}
